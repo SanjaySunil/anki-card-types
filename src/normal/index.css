@@ -1,0 +1,262 @@
+@import url('https://fonts.googleapis.com/css2?family=Karla:wght@300;400;500;600&display=swap');
+
+
+:root body.nightMode,
+:root body.isWin.nightMode,
+:root body.isMac.nightMode,
+:root body.isLin.nightMode {
+  --border: #72767f;
+  --frame-bg: #1a1826;
+  --link: #89dceb;
+  --marked-bg: #ebcb8b;
+  --medium-border: #434c5e;
+  --slightly-grey-text: #d8dee9;
+  --text-fg: #d9e0ee;
+  --window-bg: #1e1e2e;
+  --tag: rgb(109, 199, 255);
+  --card-radius: 1rem;
+  --card-font-size: 3em;
+  --tag-font-size: 0.75em;
+  --p-font-size: 22px;
+}
+
+html,
+body {
+  font-family: "Roboto", sans-serif;
+  margin: 0 !important;
+  height: 100%;
+  width: 100%;
+  max-height: 100vh;
+  max-width: 100vw;
+  background-color: var(--window-bg) !important;
+}
+
+html.mobile,
+body.mobile {
+  height: 86vh;
+  background-color: var(--window-bg) !important;
+}
+
+body {
+  font-weight: 400;
+  word-break: keep-all;
+  text-align: center !important;
+  position: relative;
+  bottom: 1em;
+  padding-top: 1em;
+  height: 100%;
+  width: 100%;
+  max-height: 100vh;
+  max-width: 100vw;
+  z-index: -2;
+  overflow: auto;
+}
+
+.nightMode {
+  font-weight: 400;
+  word-break: keep-all;
+  position: relative;
+  bottom: 1em;
+  padding-top: 1em;
+  height: 100%;
+  width: 100%;
+  max-height: 100vh;
+  max-width: 100vw;
+  z-index: -2;
+  overflow: auto;
+}
+
+body::after {
+  content: "";
+  top: 0;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 101%;
+  max-height: 101vh;
+  position: absolute;
+  z-index: -1;
+}
+
+img {
+  margin: 0 auto;
+  width: 500px;
+}
+
+.image {
+  margin-top: 15px;
+}
+
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: red;
+  text-decoration: none;
+}
+
+/* CARD */
+.note {
+  margin: 0 auto;
+  width: 95%;
+  box-sizing: border-box;
+  padding: 0 1.5vh;
+  position: relative;
+  border-radius: var(--card-radius);
+  font-size: var(--card-font-size);
+}
+
+.front,
+.back,
+.onesided {
+  background-color: var(--frame-bg);
+  padding: 0 2em 1em 2em;
+  backdrop-filter: blur(10px);
+  overflow: auto;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+}
+
+.front {
+  line-height: 1.5;
+  background-color: var(--frame-bg);
+  margin: 1em 0 0 0;
+  border-top-left-radius: var(--card-radius);
+  border-top-right-radius: var(--card-radius);
+}
+
+strong {
+  font-weight: 500 !important;
+}
+
+.note .front {
+  border-bottom-style: dashed;
+  border-color: var(--border);
+}
+
+.back {
+  line-height: 1.5;
+  z-index: 10;
+  border-bottom-left-radius: var(--card-radius);
+  border-bottom-right-radius: var(--card-radius);
+  margin: 0;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  font-weight: 400;
+  opacity: 0.9;
+}
+
+.extra {
+  padding: 2em 2em 2em 2em;
+  overflow: auto;
+  color: var(--slightly-grey-text) !important;
+  margin: 1em 0 0 0;
+  border-radius: var(--card-radius);
+  font-size: var(--p-font-size);
+  line-height: 1.5;
+  word-break: keep-all;
+  text-align: center !important;
+  box-shadow: 0 19px 38px rgba(0, 0, 0, 0.3), 0 15px 12px rgba(0, 0, 0, 0.22);
+  line-height: 1.5;
+  background-color: var(--frame-bg);
+  border-top-left-radius: var(--card-radius);
+  border-top-right-radius: var(--card-radius);
+  font-weight: 400;
+  opacity: 0.85;
+}
+
+.onesided {
+  border-radius: 1.2em;
+  margin: 1em 0;
+}
+
+.row {
+  padding: 1em 0 0 0;
+}
+
+/* TAGS */
+.tags {
+  margin-bottom: -1em;
+}
+
+.tablecontainer + .onesided .tags {
+  padding-bottom: 0;
+}
+
+.tag {
+  padding: 0.4em 0.8em 0.4em 0.8em;
+  display: inline-block;
+  color: var(--tag);
+  font-size: var(--tag-font-size);
+  border-radius: var(--card-radius);
+  border-color: var(--border);
+  border-style: solid;
+  border-width: 1.5px;
+  margin: 0.5em 0.5em 0.5em 0;
+  position: relative;
+  bottom: 0.5em;
+}
+
+/* ANKI TEMPLATE WIZARDRY */
+:not(.backtemplate) .backonly {
+  display: none;
+}
+
+.backtemplate .backonly {
+  display: block;
+}
+
+.backtemplate .frontonly {
+  display: none;
+}
+
+/* MY ADDITIONAL */
+.mobile .card img {
+  height: unset !important;
+  width: unset !important;
+}
+
+.fade {
+  animation: fadeIn ease 0.25s;
+  -webkit-animation: fadeIn ease 0.25s;
+  -moz-animation: fadeIn ease 0.25s;
+  -o-animation: fadeIn ease 0.25s;
+  -ms-animation: fadeIn ease 0.25s;
+}
+
+.fade-2 {
+  animation: fadeIn ease 0.5s;
+  -webkit-animation: fadeIn ease 0.5s;
+  -moz-animation: fadeIn ease 0.5s;
+  -o-animation: fadeIn ease 0.5s;
+  -ms-animation: fadeIn ease 0.5s;
+}
+
+@keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-moz-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
+
+@-webkit-keyframes fadeIn {
+  0% {
+    opacity: 0;
+  }
+
+  100% {
+    opacity: 1;
+  }
+}
