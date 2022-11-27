@@ -78,6 +78,11 @@ body::after {
   z-index: -1;
 }
 
+body .card {
+  width: 100%;
+  max-width: 100vh;
+}
+
 img {
   margin: 0 auto;
   width: 500px;
